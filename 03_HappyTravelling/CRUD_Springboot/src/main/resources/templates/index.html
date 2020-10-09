@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<meta charset="utf-8"/>
+		<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+		<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+		<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+		<!------ Include the above in your HEAD tag ---------->
+		<link rel="stylesheet"	href="https://use.fontawesome.com/releases/v5.0.8/css/all.css">
+	</head>
+	<body>
+		<div class="card bg-light">
+			<article class="card-body mx-auto" style="max-width: 400px;">
+				<h4 class="card-title mt-3 text-center">Menu User</h4>
+				<form action="#" th:action="index" method="post">
+					<div class="form-group input-group">
+						<select class="form-control form-control-sm" id="asal">
+                            <option value="">Asal Penerbangan</option>
+                            <option th:each="penerbangan:${penerbangans}"
+                                    th:value="${penerbangan.asal}"
+                                    th:text="${penerbangan.asal}">
+                            </option>
+                        </select>
+                        <select class="form-control form-control-sm" id="asal">
+                            <option value="">Tujuan Penerbangan</option>
+                            <option th:each="penerbangan:${penerbangans}"
+                                    th:value="${penerbangan.tujuan}"
+                                    th:text="${penerbangan.tujuan}">
+                            </option>
+                        </select>
+					</div>
+						
+					<div class="form-group">
+						<button type="submit" class="btn btn-primary btn-md">Book</button>
+					</div>
+				</form>
+			</article>
+		</div> <!-- card.// -->
+	</body>
+</html>

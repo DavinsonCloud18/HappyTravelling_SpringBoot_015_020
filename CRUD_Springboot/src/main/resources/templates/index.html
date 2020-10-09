@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<meta charset="utf-8"/>
+		<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+		<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+		<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+		<!------ Include the above in your HEAD tag ---------->
+		<link rel="stylesheet"	href="https://use.fontawesome.com/releases/v5.0.8/css/all.css">
+	</head>
+	<body>
+		<div class="card bg-light">
+			<article class="card-body mx-auto" style="max-width: 400px;">
+				<h4 class="card-title mt-3 text-center">Menu User</h4>
+				<form action="#" th:action="index" method="post">
+					<table class="form-group input-group">
+						<tr>
+							<td>Asal</td>
+							<td>
+								<select class="form-control form-control-sm" id="asal">
+		                            <option value="">Asal Penerbangan</option>
+		                            <option th:each="penerbangan:${flights}"
+		                                    th:value="${penerbangan.asal}"
+		                                    th:text="${penerbangan.asal}">
+		                            </option>
+                        		</select>
+							</td>
+						</tr>
+						<tr>
+							<td>Tujuan</td>
+							<td>
+								<select class="form-control form-control-sm" id="tujuan">
+		                            <option value="">Tujuan Penerbangan</option>
+		                            <option th:each="penerbangan:${flights}"
+		                                    th:value="${penerbangan.tujuan}"
+		                                    th:text="${penerbangan.tujuan}">
+		                            </option>
+		                        </select>
+							</td>
+						</tr>
+						<tr>
+							<td>Jumlah Penumpang</td>
+							<td>
+								<input type="text" class="form-control form-control-sm" placeholder="Jumlah Penumpang" id="jlhPenumpang">
+							</td>	
+						</tr>
+						<tr>
+							<td>Tanggal Berangkat</td>
+							<td>
+								<input type="date" class="form-control form-control-sm" id="tglBerangkat">
+							</td>	
+						</tr>
+						<tr>
+							<td>Tanggal Kembali</td>
+							<td>
+								<input type="date" class="form-control form-control-sm" id="tglKembali">
+							</td>	
+						</tr>
+					</table>
+					<div class="form-group">
+						<button type="submit" class="btn btn-primary btn-block">Book</button>
+					</div>
+				</form>
+				<a th:href="@{/logout}">
+					<button class="btn btn-primary btn-block">Logout</button>
+				</a>
+			</article>
+		</div> <!-- card.// -->
+	</body>
+</html>
